@@ -127,7 +127,7 @@ export default function Index() {
             </List>
         </Drawer>
         <Box component="main"
-        sx={{ backgroundImage: "url(https://dl.mefrp.ximuc.top/aehxy.com/background.jpg)", 
+        sx={{ backgroundImage: "url(http://dl.mefrp.ximuc.top/aehxy.com/background.jpg)", 
         flexGrow: 1, height: '100vh', overflow: 'auto', 
         //首页背景img，还得去部署个Bing每日一图
         }}>
@@ -136,7 +136,7 @@ export default function Index() {
                 <Paper className={styles.paper} elevation={3}>
                     <Box width={ "100%"} display={ "flex"} flexDirection={ "column"} alignItems={ "center"} px={1} pb={1}>
                         <Box marginTop={2} marginBottom={1}>
-                            <Box component={ "img"} src={ 'https://dl.mefrp.ximuc.top/aehxy.com/avatar.jpg'} alt={ "avatar"} height={96} width={96} borderRadius={ "50%"} />
+                            <Box component={ "img"} src={ 'http://dl.mefrp.ximuc.top/aehxy.com/avatar.jpg'} alt={ "avatar"} height={96} width={96} borderRadius={ "50%"} />
                         </Box>
                         <Typography variant={ "h5"} component={ "div"}>
                             Aehxy
