@@ -1,5 +1,5 @@
-# 基于 Next.js TypeScript 的个人网站
-[示例页面](https://www.aehxy.com)
+# 基于 Next.js TypeScript 的门户网站
+[示例页面](https://www.mcserverx.com)
 ## How to use
 
 Download the example [or clone the repo](https://github.com/ahmr-bot/Personal-Web):
@@ -21,3 +21,4 @@ npm run dev
 yarn install
 yarn dev
 ```
+Feature: 加入后端，实现 CMS 功能
