@@ -20,6 +20,7 @@ export default function MyApp(props: MyAppProps) {
     <CacheProvider value={emotionCache}>
       <Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <title>镜缘网络 MirrorEdge Network</title>
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

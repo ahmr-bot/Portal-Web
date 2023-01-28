@@ -1,43 +1,28 @@
-import * as React from 'react';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
-import MuiDrawer from '@mui/material/Drawer';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import { mainListItems } from '../src/DrawerList';
-import Copyright from '../src/Copyright';
-import Head from "next/head";
+import MenuIcon from '@mui/icons-material/Menu';
 import {
+  Avatar,
   Box,
   Container,
   CssBaseline,
   Divider,
-  Link,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemButton,
+  ListItemText,
   Paper,
-  Theme,
-  Typography,
+  Typography
 } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+import MuiDrawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import Toolbar from '@mui/material/Toolbar';
+import { ThemeProvider, createTheme, styled } from '@mui/material/styles';
+import * as React from 'react';
+import Copyright from '../src/Copyright';
+import { mainListItems } from '../src/DrawerList';
 const drawerWidth: number = 240;
-const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-        container: {
-            minHeight: "calc(100vh - 16px)",
-            display: "flex",
-            flexDirection: "column",
-            alignContent: "center",
-            justifyContent: "center",
-        },
-        paper: {
-            padding: theme.spacing(4),
-            marginBottom: theme.spacing(4),
-            borderRadius: 8,
-        },
-    })
-);
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
@@ -89,7 +74,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 export default function Index() {
-  const styles = useStyles();
   const [open, setOpen] = React.useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -97,10 +81,6 @@ export default function Index() {
 
   return (
 <ThemeProvider theme={mdTheme}>
-
-    <Head>
-        <title>Aehxy 的个人主页</title>
-    </Head>
     <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar position="absolute" open={open}>
@@ -111,7 +91,7 @@ export default function Index() {
                     <MenuIcon />
                 </IconButton>
                 <Typography component="h1" variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
-                    Aehxy 的个人主页
+                镜缘网络 MirrorEdge Network
                 </Typography>
             </Toolbar>
         </AppBar>
@@ -127,36 +107,71 @@ export default function Index() {
             </List>
         </Drawer>
         <Box component="main"
-        sx={{ backgroundImage: "url(http://dl.mefrp.ximuc.top/aehxy.com/background.jpg)", 
+        sx={{ backgroundImage: "url(./background.jfif)", 
         flexGrow: 1, height: '100vh', overflow: 'auto', 
         //首页背景img，还得去部署个Bing每日一图
         }}>
             <Toolbar />
-            <Container maxWidth={ "md"} className={styles.container}>
-                <Paper className={styles.paper} elevation={3}>
-                    <Box width={ "100%"} display={ "flex"} flexDirection={ "column"} alignItems={ "center"} px={1} pb={1}>
-                        <Box marginTop={2} marginBottom={1}>
-                            <Box component={ "img"} src={ 'http://dl.mefrp.ximuc.top/aehxy.com/avatar.jpg'} alt={ "avatar"} height={96} width={96} borderRadius={ "50%"} />
-                        </Box>
+            <Container maxWidth={ "md"} sx={{ 
+                          minHeight: "calc(100vh - 16px)",
+                          display: "flex",
+                          flexDirection: "column",
+                          alignContent: "center",
+                          justifyContent: "center",
+            }}>
+                <Paper sx={{ 
+            padding: mdTheme.spacing(4),
+            marginBottom: mdTheme.spacing(4),
+            borderRadius: 8,
+                }} elevation={3}>
+                    
+                <Box
+                    padding={3}
+                    height={"100%"}
+                    width={"100%"}
+                >
                         <Typography variant={ "h5"} component={ "div"}>
-                            Aehxy
+                        镜缘网络 MirrorEdge Network 官网
                         </Typography>
-                        <Typography variant={ "body2"} component={ "div"} color={ "text.secondary"}>
-                            高一学生（悲 |莱云运营|镜缘映射前/副站长
+                        <Typography variant={ "body1"} component={ "div"}>
+                        我们的服务：
                         </Typography>
-                        <Link href="https://qm.qq.com/cgi-bin/qm/qr?k=qSjhvnz8w5DYgTgWg8o14Vhd0_tb5AQs&noverify=0&personal_qrcode_source=1" color="secondary"> QQ
-                        </Link>
-                        <Link href="https://github.com/ahmr-bot" color="secondary"> Github
-                        </Link>
-                        <Link href="https://github.com/ahmr-bot" color="secondary"> Github
-                        </Link>
-                        <Link href="mailto:admin@mcserverx.com" color="secondary"> E-mail
-                        </Link>
-                        <Copyright />
-
-                    </Box>
+                      
+        <List>
+          <ListItem disablePadding>
+            <ListItemButton href="https://www.mefrp.com"
+            target="_blank">
+            <ListItemAvatar>
+       <Avatar src="./mefrp.jpg" />
+       </ListItemAvatar>
+              <ListItemText primary="MirrorEdgeFrp 镜缘映射" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton href="https://mirror.mcserverx.com"
+            target="_blank">
+            <ListItemAvatar>
+       <Avatar src="./mirror.jpg" />
+       </ListItemAvatar>
+              <ListItemText primary="镜缘 Minecraft 服务端镜像站" />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding>
+            <ListItemButton href="https://lrmc.fun"
+            target="_blank">
+            <ListItemAvatar>
+       <Avatar src="./lrmc.jpg" />
+       </ListItemAvatar>
+              <ListItemText primary="lrmc Minecraft 服务器" />
+            </ListItemButton>
+          </ListItem>
+        </List>
+        <Copyright />      
+    </Box>
+                        
+                        
                 </Paper>
-
+                
 
             </Container>
         </Box>
